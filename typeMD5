@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+use Data::Dumper;
+use Term::ReadKey;
+use Digest::MD5 qw(md5_hex);
+
+$| = 1;
+
+# --------------------------------
+
+# --------------------------------
+
+ReadMode ('noecho');
+print 'Secret phrase?:';
+my $secret = <STDIN>;
+chomp($secret);
+print "\n";
+ReadMode ('restore');
+print md5_hex($secret)."\n";
